@@ -54,4 +54,27 @@ export class TodosComponent implements OnInit {
       localStorage.setItem('todos', JSON.stringify(this.todos));
     }
   }
+
+  downloadCSV() {
+    const header = 'Sno,Title,Description,Due Date,Priority,Status,History\n';
+    const rows = this.todos.map(todo => 
+      `${todo.sno},"${todo.title}","${todo.desc}",${todo.dueDate},${todo.priority},${todo.active ? 'Active' : 'Completed'},"${todo.history.join('; ')}"`
+    );
+    const csvContent = header + rows.join('\n');
+
+    // Create a Blob with the CSV content
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'todos.csv');
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
 }

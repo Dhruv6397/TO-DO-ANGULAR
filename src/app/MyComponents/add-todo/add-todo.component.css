@@ -10,3 +10,11 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+@media only screen and (max-width: 767px) {
+    .form-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}

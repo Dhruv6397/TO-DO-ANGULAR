@@ -12,6 +12,7 @@
         <h2>Sort:</h2>
         <button class="btn btn-primary" (click)="sortByPriority()">Priority</button>
         <button class="btn btn-primary" (click)="sortByDate()">Date</button>
+        <button class="btn btn-primary" (click)="downloadCSV()">Download CSV</button>
     </div>
     <div class="todos-list" *ngFor ="let  todo of todos">
         <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)"></app-todo-item>

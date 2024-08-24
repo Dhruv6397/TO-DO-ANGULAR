@@ -35,4 +35,9 @@ export class TodoItemComponent {
     todo.history.push(`Task deleted on ${new Date().toLocaleString()}`);
     this.todoDelete.emit(todo);
   }
+
+  toggleHistory(todo: any): void {
+    todo.showHistory = !todo.showHistory;
+}
+
 }
