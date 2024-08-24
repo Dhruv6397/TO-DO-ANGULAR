@@ -13,10 +13,10 @@
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
+    min-height: 6em;
 }
 .item-mobile{
     display: none;
-
 }
 .modify-btn{
     width: 5em;
@@ -25,6 +25,23 @@
     border: 2px solid white;
     color: white;
 }
+.mobile-btns div button{
+    width: 6em;
+    height: 3em;
+    font-size: .5em;
+    margin: 1em;
+}
+.mobile-btns div {
+    padding-top: .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
 .edit-container{
     border-radius:10px ;
     background-color: rgb(111, 173, 149);
@@ -41,6 +58,7 @@
         grid-template-columns: 1fr 1fr ;
     }  
     .item-mobile{
+
         margin-top: 2em;
         display: flex;
         flex-direction: row;

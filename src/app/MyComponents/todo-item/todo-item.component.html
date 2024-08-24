@@ -1,85 +1,72 @@
-<div class="item" *ngIf="!todo.editing; else editTemplate">
-      <div style=" display: flex; flex-direction: column; text-align: center; align-items: center; width: 30%;">
-          <h4>{{todo.title}}</h4>
-          <p>{{todo.desc}}</p>
-      </div>
-    
-
-      <div style=" display: flex; text-align: center; align-items: center;">
-          <h5>Priority: {{todo.priority}}</h5> 
-      </div>
-      <div style=" display: flex;  text-align: center; align-items: center;">
-          <h5>{{todo.dueDate}}</h5>
-      </div>
-    
-
-      <div style="display: flex;  text-align: center; align-items: center;">
-        <button class="btn btn-danger" style="height: 2em; text-align: center;" (click)="onClick(todo)">DELETE</button>    
-      </div>
-      <div style="display: flex;  text-align: center; align-items: center;">
-          <button class="modify-btn" style="height: 2em; text-align: center;" (click)="edit(todo)">EDIT</button>    
-      </div>
-   
-    
-    
-</div>
-
-<div class="item-mobile" *ngIf="!todo.editing; else editTemplate">
-  <div style=" display: flex; flex-direction: column; text-align: center; align-items: center; width: 30%;">
+<!-- Common Layout for Item -->
+<div *ngIf="!todo.editing; else editTemplate">
+  <div class="item" *ngIf="!isMobileView()">
+    <div style="display: flex; flex-direction: column; text-align: center; align-items: center; width: 30%;">
       <h4>{{todo.title}}</h4>
       <p>{{todo.desc}}</p>
-  </div>
-
-  <div>
-    <div style=" display: flex; text-align: center; align-items: center;">
-      <h5>Priority: {{todo.priority}}</h5> 
-  </div>
-  <div style=" display: flex;  text-align: center; align-items: center;">
+    </div>
+    <div style="display: flex; text-align: center; align-items: center;">
+      <h5>Priority: {{todo.priority}}</h5>
+    </div>
+    <div style="display: flex; text-align: center; align-items: center;">
       <h5>{{todo.dueDate}}</h5>
-  </div>
-  </div>
-
-
-<div>
-
-  <div style="display: flex;  text-align: center; align-items: center;">
-    <button class="btn btn-danger" style="height: 2em; text-align: center;" (click)="onClick(todo)">DELETE</button>    
-  </div>
-  <div style="display: flex;  text-align: center; align-items: center;">
-      <button class="modify-btn" style="height: 2em; text-align: center;" (click)="edit(todo)">EDIT</button>    
+    </div>
+    <div style="display: flex; text-align: center; align-items: center;">
+      <button class="btn btn-danger" (click)="onClick(todo)">DELETE</button>
+    </div>
+    <div style="display: flex; text-align: center; align-items: center;">
+      <button class="modify-btn" style="height: 2em; text-align: center;" (click)="edit(todo)">EDIT</button>
+    </div>
   </div>
 
-</div>
-
-
-
-</div>
-<div  style="margin-top: 10px;">
-  <h5>History:</h5>
-  <ul>
-      <li *ngFor="let log of todo.history" style="list-style:square;">{{ log }}</li>
-  </ul>
-</div>
- 
-<ng-template #editTemplate>
-    <div class="edit-container">
-      <div style="display: flex; flex-direction: column; justify-content: space-around; text-align: center; align-items: center;">
-        <input style="margin: .5em 0 .5em 0;" type="text" [(ngModel)]="todo.title" class="form-control" />
-        <input style="margin: .5em 0 .5em 0;" type="text" [(ngModel)]="todo.desc" class="form-control" />
+  <div class="item-mobile" *ngIf="isMobileView()">
+    <div style="display: flex; flex-direction: column; text-align: center; align-items: center; width: 30%;">
+      <h4>{{todo.title}}</h4>
+      <p>{{todo.desc}}</p>
+    </div>
+    <div>
+      <div style="display: flex; text-align: center; align-items: center;">
+        <h6>Priority: {{todo.priority}}</h6>
       </div>
-      <div style="display: flex;  flex-direction: column; text-align: center; align-items: center;">
-        <input style="margin: .5em 0 .5em 0;" type="date" [(ngModel)]="todo.dueDate" class="form-control" />
-        <select style="margin: .5em 0 .5em 0;" [(ngModel)]="todo.priority"  class="form-control">
-          <option value="1">1 - High</option>
-          <option value="2">2 - Medium</option>
-          <option value="3">3 - Low</option>
-        </select>
-      </div>
-      <div style="display: flex; flex-direction: column; text-align: center; align-items: center;">
-        <button class="btn btn-success" style="height: 2em; text-align: center; margin: .5em 0 .5em 0;" (click)="save(todo)">SAVE</button>
-        <button class="btn btn-secondary" style="height: 2em; text-align: center; margin: .5em 0 .5em 0;" (click)="cancel(todo)">CANCEL</button>
+      <div style="display: flex; text-align: center; align-items: center;">
+        <h6>{{todo.dueDate}}</h6>
       </div>
     </div>
-  </ng-template>
+    <div class="mobile-btns">
+      <div style="display: flex; text-align: center; align-items: center;">
+        <button class="btn btn-danger" (click)="onClick(todo)">DELETE</button>
+      </div>
+      <div style="display: flex; text-align: center; align-items: center;">
+        <button class="modify-btn" (click)="edit(todo)">EDIT</button>
+      </div>
+    </div>
+  </div>
 
-  
+  <div style="margin-top: 10px;">
+    <h5>History:</h5>
+    <ul>
+      <li *ngFor="let log of todo.history" style="list-style:square;">{{ log }}</li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #editTemplate>
+  <div class="edit-container">
+    <div style="display: flex; flex-direction: column; justify-content: space-around; text-align: center; align-items: center;">
+      <input style="margin: .5em 0 .5em 0;" type="text" [(ngModel)]="todo.title" class="form-control" />
+      <input style="margin: .5em 0 .5em 0;" type="text" [(ngModel)]="todo.desc" class="form-control" />
+    </div>
+    <div style="display: flex; flex-direction: column; text-align: center; align-items: center;">
+      <input style="margin: .5em 0 .5em 0;" type="date" [(ngModel)]="todo.dueDate" class="form-control" />
+      <select style="margin: .5em 0 .5em 0;" [(ngModel)]="todo.priority" class="form-control">
+        <option value="1">1 - High</option>
+        <option value="2">2 - Medium</option>
+        <option value="3">3 - Low</option>
+      </select>
+    </div>
+    <div style="display: flex; flex-direction: column; text-align: center; align-items: center;">
+      <button class="btn btn-success" style="height: 2em; text-align: center; margin: .5em 0 .5em 0;" (click)="save(todo)">SAVE</button>
+      <button class="btn btn-secondary" style="height: 2em; text-align: center; margin: .5em 0 .5em 0;" (click)="cancel(todo)">CANCEL</button>
+    </div>
+  </div>
+</ng-template>

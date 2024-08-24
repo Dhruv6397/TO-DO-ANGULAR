@@ -11,6 +11,10 @@
     justify-content: space-evenly;
 }
 
+.is-invalid {
+    border-color: red;
+  }
+  
 @media only screen and (max-width: 767px) {
     .form-items{
         display: flex;

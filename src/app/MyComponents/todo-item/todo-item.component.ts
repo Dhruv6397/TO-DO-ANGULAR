@@ -39,5 +39,9 @@ export class TodoItemComponent {
   toggleHistory(todo: any): void {
     todo.showHistory = !todo.showHistory;
 }
+isMobileView(): boolean {
+  return window.innerWidth <= 767;
+}
+
 
 }
