@@ -24,7 +24,9 @@ export class AddTodoComponent {
       desc:this.desc,
       active:true,
       dueDate:this.dueDate,
-      priority:this.priority
+      priority:this.priority,
+      editing: false,
+      history:[`Task created on ${new Date().toLocaleString()}`]
     }
     this.todoAdd.emit(todo)
   }

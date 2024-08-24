@@ -14,3 +14,19 @@
     font-weight: 200;
     font-style: normal;
 }
+.modify-btn{
+    width: 5em;
+    border-radius: 10px;
+    background-color: rgb(38, 95, 94);
+    border: 2px solid white;
+    color: white;
+}
+.edit-container{
+    border-radius:10px ;
+    background-color: rgb(111, 173, 149);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2em;
+    padding: 1em 0 1em 0;
+}

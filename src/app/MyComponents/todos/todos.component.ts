@@ -17,7 +17,6 @@ export class TodosComponent implements OnInit {
   constructor() {}
  
   ngOnInit() {
-    // Ensure localStorage is accessed only in the browser
     if (typeof window !== 'undefined') {
       const localItem = localStorage.getItem('todos');
       this.todos = localItem ? JSON.parse(localItem) : [];
@@ -25,18 +24,20 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(todo: Todo) {
-    console.log(todo);
     this.todos = this.todos.filter(t => t !== todo);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('todos', JSON.stringify(this.todos));
-    }
+    this.saveToLocalStorage();
   }
 
   addTodo(todo: Todo) {
-    console.log(todo);
     this.todos.push(todo);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('todos', JSON.stringify(this.todos));
+    this.saveToLocalStorage();
+  }
+
+  updateTodo(updatedTodo: Todo) {
+    const index = this.todos.findIndex(t => t.sno === updatedTodo.sno);
+    if (index !== -1) {
+      this.todos[index] = updatedTodo;
+      this.saveToLocalStorage();
     }
   }
 
@@ -48,4 +49,9 @@ export class TodosComponent implements OnInit {
     this.todos.sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
   }
 
+  saveToLocalStorage() {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('todos', JSON.stringify(this.todos));
+    }
+  }
 }

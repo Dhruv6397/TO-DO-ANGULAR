@@ -1,18 +1,38 @@
-import { Input,Component, Output,EventEmitter } from '@angular/core';
+import { Input, Component, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../../Todo';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-item',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './todo-item.component.html',
   styleUrl: './todo-item.component.css'
 })
 export class TodoItemComponent {
-  @Input() todo!:Todo;
-  @Output() todoDelete:EventEmitter<Todo> = new EventEmitter();
-  onClick(todo:Todo){
-    this.todoDelete.emit(todo)
-    console.log("onclick has been triggered")
+  @Input() todo!: Todo;
+  @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
+  @Output() todoUpdate: EventEmitter<Todo> = new EventEmitter();
+
+  edit(todo: Todo) {
+    todo.editing = true;
+  }
+
+  save(todo: Todo) {
+    if (todo.editing) {
+      todo.history.push(`Task edited and saved on ${new Date().toLocaleString()}`);
+      todo.editing = false;
+      this.todoUpdate.emit(todo);
+    }
+  }
+
+  cancel(todo: Todo) {
+    todo.editing = false;
+  }
+
+  onClick(todo: Todo) {
+    todo.history.push(`Task deleted on ${new Date().toLocaleString()}`);
+    this.todoDelete.emit(todo);
   }
 }
