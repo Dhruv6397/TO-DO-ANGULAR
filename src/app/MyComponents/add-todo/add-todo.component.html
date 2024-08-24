@@ -1,13 +1,31 @@
-<div class="my-3">
+<div class="form-main-container">
   <h2>Add Todo</h2>
   <form (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="title" class="form-label">To Do title</label>
-      <input type="text" [(ngModel)]="title" class="form-control" name="title" id="title">
-    </div>
-    <div class="mb-3">
-      <label for="desc" class="form-label">To Do Description</label>
-      <input type="text" [(ngModel)]="desc" class="form-control" id="desc" name="desc">
+    <div class="form-items">
+      <div>
+        <div class="mb-3">
+          <label for="title" class="form-label">To Do title</label>
+          <input type="text" [(ngModel)]="title" class="form-control" name="title" id="title">
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">To Do Description</label>
+          <input type="text" [(ngModel)]="desc" class="form-control" id="desc" name="desc">
+        </div>
+      </div>
+      <div>
+        <div class="mb-3">
+          <label for="dueDate" class="form-label">Due Date</label>
+          <input type="date" [(ngModel)]="dueDate" class="form-control" id="dueDate" name="dueDate">
+        </div>
+        <div class="mb-3">
+          <label for="priority" class="form-label">Priority</label>
+          <select [(ngModel)]="priority" class="form-control" id="priority" name="priority">
+            <option value="1">1 - High</option>
+            <option value="2">2 - Medium</option>
+            <option value="3">3 - Low</option>
+          </select>
+        </div>
+      </div>  
     </div>
     <button type="submit" class="btn btn-primary">ADD TODO</button>
   </form>

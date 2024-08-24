@@ -10,8 +10,8 @@ import { TodosComponent } from "./MyComponents/todos/todos.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'To do list by '; // Default title
-  userName: string = 'User'; // Default user name
+  title = 'To do list by '; 
+  userName: string = 'User'; 
   constructor(){
    
   }

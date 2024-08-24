@@ -1,8 +1,13 @@
-<div class="my-3" style="display: flex; flex-direction: row; justify-content: space-evenly;">
-    <div>
+<div class="item" style="display: flex; flex-direction: row; justify-content: space-evenly;">
+    <div style=" display: flex; flex-direction: column; text-align: center; align-items: center;">
         <h3>{{todo.title}}</h3>
         <p>{{todo.desc}}</p>
     </div>
-    
-    <button class="btn btn-danger" style="height: 3em;" (click)="onClick(todo)">Delete</button>    
+    <div style=" display: flex; text-align: center; align-items: center;">
+        <h5>Priority: {{todo.priority}}</h5> 
+    </div>
+    <div style=" display: flex; flex-direction: column; text-align: center; align-items: center;">
+        <h5>{{todo.dueDate}}</h5>
+        <button class="btn btn-danger" style="height: 2em; text-align: center;" (click)="onClick(todo)">Delete</button>    
+    </div>
 </div>

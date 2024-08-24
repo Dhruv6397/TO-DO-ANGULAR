@@ -1,0 +1,26 @@
+.todos-list{
+    display: flex;
+    flex-direction: column;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.sort-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.sort-button .btn{
+    height: 3em;
+    width: 10em;
+    background-color: rgb(32, 50, 44);
+    border: .9px solid rgba(165, 220, 220, 0.2);
+    border-radius: 20px;
+}
+.sort-button .btn:hover{
+    background-color: rgba(210, 230, 230, 0.2);
+    color: black;
+    border-radius: 1px solid rgb(32, 50, 44);
+}

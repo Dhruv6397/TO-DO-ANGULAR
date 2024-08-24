@@ -12,6 +12,8 @@ import { v4 as uuidv4 } from 'uuid';
 export class AddTodoComponent {
   title:string='';
   desc:string='';
+  dueDate:string='';
+  priority:number=0
   @Output() todoAdd :EventEmitter<Todo> = new EventEmitter()
   
   onSubmit(){
@@ -20,7 +22,9 @@ export class AddTodoComponent {
       sno:uuidv4(),
       title:this.title,
       desc:this.desc,
-      active:true
+      active:true,
+      dueDate:this.dueDate,
+      priority:this.priority
     }
     this.todoAdd.emit(todo)
   }

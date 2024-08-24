@@ -1,0 +1,21 @@
+*{
+    color: white;
+}
+.main-app{
+    background-attachment: fixed;
+    height: 100%;
+    background-color: rgb(19, 26, 24);
+    /* font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-style: normal; */
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+.main-app h1{
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+}

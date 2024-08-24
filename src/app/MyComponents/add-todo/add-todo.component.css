@@ -1,0 +1,12 @@
+.form-main-container{
+    padding: 2em;
+    border-radius: 10px;
+    border: 2px solid #89bcad;
+    box-shadow: 0px 4px 8px rgba(186, 234, 234, 0.2);
+    background-color: rgb(32, 50, 44);
+}
+.form-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
