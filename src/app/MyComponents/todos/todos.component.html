@@ -3,13 +3,13 @@
     <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
     <!-- <h2>Your Todos</h2>   -->
 </div>
-<div *ngIf="this.todos.length===0; else elseBlock">
+<div  *ngIf="this.todos.length===0; else elseBlock">
     <h1 style="text-align: center;">Nothing to display ...</h1>
 </div>
 
 <ng-template #elseBlock >
     <div class="sort-button">
-        <h2>Sort:</h2>
+        <h2 style="color: rgb(255, 255, 255);">Sort:</h2>
         <button class="btn btn-primary" (click)="sortByPriority()">Priority</button>
         <button class="btn btn-primary" (click)="sortByDate()">Date</button>
         <button class="btn btn-primary" (click)="downloadCSV()">Download CSV</button>

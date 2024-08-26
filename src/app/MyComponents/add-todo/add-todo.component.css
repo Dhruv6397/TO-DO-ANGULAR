@@ -22,3 +22,12 @@
         justify-content: space-evenly;
     }
 }
+
+.dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+  
+.dark-mode .main-app {
+    background-color: #333;
+  }

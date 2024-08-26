@@ -16,7 +16,9 @@
 .sort-button .btn{
     height: 3em;
     width: 10em;
-    background-color: rgb(32, 50, 44);
+    /* background-color: rgb(32, 50, 44); */
+    background-color: #444;
+
     border: .9px solid rgba(165, 220, 220, 0.2);
     border-radius: 20px;
 }
@@ -36,3 +38,4 @@
         border-radius: 20px;
     }
 }
+

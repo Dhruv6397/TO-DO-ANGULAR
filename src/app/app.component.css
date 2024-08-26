@@ -1,23 +1,23 @@
 *{
     color: white;
+    
 }
 .main-app{
-    background-attachment: fixed;
-    height: 100%;
-    background-color: rgb(19, 26, 24);
-    /* font-family: "Baskervville SC", serif;
-    font-weight: 400;
-    font-style: normal; */
+    min-height: 100vh;
     font-family: "Exo 2", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
+    color: #000000;
+    background-color: #2e5b46;
 }
 .main-app h1{
     font-family: "Alfa Slab One", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 3em;
+    color: white;
+    
 }
 
 @media only screen and (max-width: 767px) {
@@ -28,3 +28,23 @@
         font-size: 1.5em;
     }
 }
+
+.dark-mode {
+    background-color: #28362a;
+    color: white;
+  }
+  
+  .dark-mode .main-app {
+    background-color: #28362a;
+  }
+  
+  .dark-mode app-todos {
+    background-color: #28362a;
+  }
+  
+
+ 
+  
+  .light-mode app-todos {
+    background-color: #e3b2b2;
+  }
